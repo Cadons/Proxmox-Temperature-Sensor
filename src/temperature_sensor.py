@@ -25,7 +25,14 @@ class TemperatureSensor(s.Sensor):
         return f"TemperatureSensor(id={self.id}, name={self.name})"
     
     def notifyServer(self)->bool:
-        data={"id":self.get_id(), "name":self.get_name(), "value":self.get_value()}
+        avarage_temperature=0
+        data=self.get_value()
+        data=json.loads(data)
+        acpitz_temp = data['acpitz'][0][1]
+        coretemp_temp = data['coretemp'][0][1]
+        nvme_temp = data['nvme'][0][1]
+        avarage_temperature=(acpitz_temp+coretemp_temp+nvme_temp)/3
+        data={"id":self.get_id(), "name":self.get_name(), "value":avarage_temperature}
         super().notifyServer(data)
         
     

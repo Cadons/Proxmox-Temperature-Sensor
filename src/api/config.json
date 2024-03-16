@@ -1,5 +1,7 @@
 {
-    "update_time": 10,
-    "monitoring_server_url": "http://localhost:10080"
-
+    "temperature_watcher": {
+        "critical_temperature": 60,
+        "measurement_count": 4,
+        "alert_webhook": "https://webhook.site/aa43c2c7-645b-4416-aede-909a0463f62a"
+    }
 }
