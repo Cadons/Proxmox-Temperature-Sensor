@@ -4,7 +4,7 @@
 
 # Creare un file di servizio systemd
 echo "[Unit]
-Description=My Script
+Description=Proxmox temperature sensor
 
 [Service]
 ExecStart=$(pwd)/main.py

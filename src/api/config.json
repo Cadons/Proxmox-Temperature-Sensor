@@ -2,6 +2,8 @@
     "temperature_watcher": {
         "critical_temperature": 60,
         "measurement_count": 4,
-        "alert_webhook": "https://webhook.site/aa43c2c7-645b-4416-aede-909a0463f62a"
+        "monitoring_server_url": "https://webhook.site/aa43c2c7-645b-4416-aede-909a0463f62a",
+        "update_time":10 
+
     }
 }

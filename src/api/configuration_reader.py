@@ -11,10 +11,11 @@ class ConfigurationReader:
         file_path=os.path.join(dir, "config.json")
         jsonFile=open(file_path, "r")
         data = json.load(jsonFile)
+        print(f"config: {data}")
         return data
 
     def get_configuration(self):
         return self.config
 
-    def get_configuration_value(self, key: str):
-        return self.config[key]
+    def get_configuration_value(self,sensorName:str, key: str):
+        return self.config[sensorName][key]
