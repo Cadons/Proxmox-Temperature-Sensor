@@ -3,6 +3,7 @@ import json
 import os
 class ConfigurationReader:
     config: json = None
+    
     def __init__(self):
         self.config = self.read_configuration()
 
