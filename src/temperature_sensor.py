@@ -30,8 +30,8 @@ class TemperatureSensor(s.Sensor):
             if self.onApi == True:
                 super().notifyServer(data)
         if self.onInflux == True:
-            self.loadInfluxDB("temperature",-1)
-            #self.loadInfluxDB("temperature",avarage_temperature)
+            #self.loadInfluxDB("temperature",-1)
+            self.loadInfluxDB("temperature",avarage_temperature)
        
 
 
