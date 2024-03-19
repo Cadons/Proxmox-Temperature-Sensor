@@ -22,10 +22,10 @@ class TemperatureSensor(s.Sensor):
         data=self.get_value()
         data=json.loads(data)
         if(len(data)>0):
-            acpitz_temp = data['acpitz'][0][1]
-            coretemp_temp = data['coretemp'][0][1]
-            nvme_temp = data['nvme'][0][1]
-            avarage_temperature=(acpitz_temp+coretemp_temp+nvme_temp)/3
+            acpitz_temp = float(data['acpitz'][0][1])
+            coretemp_temp = float(data['coretemp'][0][1])
+            nvme_temp = float(data['nvme'][0][1])
+            avarage_temperature=float((acpitz_temp+coretemp_temp+nvme_temp)/3)
             data={"id":self.get_id(), "name":self.get_name(), "value":avarage_temperature}
             if self.onApi == True:
                 super().notifyServer(data)

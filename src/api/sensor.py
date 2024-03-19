@@ -66,8 +66,7 @@ class Sensor(ABC):
         self.__write_api = self.__write_client.write_api(write_options=SYNCHRONOUS)
         if value == -1:
             value=10
-        else:
-            value=self.get_value()
+        
         point=Point(name).tag("sensor",self.get_name()).field("value",value).time(time.time_ns(), WritePrecision.NS)
         self.__write_api.write(bucket=bucket, record=point)
         
