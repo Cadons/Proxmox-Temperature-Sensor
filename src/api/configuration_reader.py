@@ -9,7 +9,7 @@ class ConfigurationReader:
 
     def read_configuration(self):
         dir=os.path.dirname(os.path.abspath(__file__))
-        file_path=os.path.join(dir, "config.json")
+        file_path=os.path.join(dir, "../config/config.json")
         jsonFile=open(file_path, "r")
         data = json.load(jsonFile)
         print(f"config: {data}")

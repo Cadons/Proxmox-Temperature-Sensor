@@ -25,7 +25,7 @@ class Sensor(ABC):
         self.__sensorName=sensorName
         if self.config.get_configuration_value(self.__sensorName,"load_on_api") == True:
             self.onApi=True
-            self.__api_url = self.config.get_configuration_value(self.__sensorName,"monitoring_server_url")
+            self.__api_url = "http://localhost:5000/api/sensor"
         
 
         if self.config.get_configuration_value(self.__sensorName,"load_on_influx") == True:
@@ -46,8 +46,9 @@ class Sensor(ABC):
     def get_id(self) -> str:
         return self.id
     
-    def notifyServer(self, inputData)->bool:
-        url=self.__api_url
+    def notifyServer(self, inputData,url=None)->bool:
+        if url == None:
+            url=self.__api_url
         headers = {'Content-Type': 'application/json'}
         data =inputData
         try:

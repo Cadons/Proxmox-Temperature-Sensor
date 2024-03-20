@@ -1,0 +1,17 @@
+{
+    "temperature_watcher": {
+        "critical_temperature": 45,
+        "measurement_count": 4,
+        "update_time":10 ,
+        "load_on_influx": true,
+        "influx_server_url": "http://192.168.1.41:8086",
+        "influx_token": "oGMBua37tnv5O3137bMUc9pgPHPMzqJ6z7-gvhStecp3tfjuX1BLRPulq7qgbF3GXF6WjKZxM_xy_1nc2uaevg==",
+        "influx_org": "CadonsNet",
+        "influx_bucket": "Monitoring",
+        "load_on_api": true,
+        "measurments_count": 4,
+        "alert_webhook_url": "https://www.virtualsmarthome.xyz/url_routine_trigger/activate.php?trigger=316eb417-5889-46da-aee7-46b1fafce703&token=15d60aa6-3177-4b28-88f1-1378632f75f1&response=json",
+        "stop_cooler_webhook_url": "https://www.virtualsmarthome.xyz/url_routine_trigger/activate.php?trigger=61c171b7-2d1f-4adf-80b2-b1156fc3e901&token=4a91c9f7-a79b-4037-bb3b-5ca7a3df3b0b&response=json"
+
+    }
+}
