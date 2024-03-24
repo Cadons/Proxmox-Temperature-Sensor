@@ -61,7 +61,7 @@ class Sensor(ABC):
     def get_updateTime(self)->int:
         return self.config.get_configuration_value(self.__sensorName,"update_time")
       
-    def loadInfluxDB(self,name="", value=-1):
+    def loadInfluxDB(self,name="", value=-1,fanON=False):
       
         bucket = self.config.get_configuration_value(self.__sensorName,"influx_bucket")
         self.__write_api = self.__write_client.write_api(write_options=SYNCHRONOUS)
@@ -69,6 +69,7 @@ class Sensor(ABC):
             value=10
         
         point=Point(name).tag("sensor",self.get_name()).field("value",value).time(time.time_ns(), WritePrecision.NS)
+        point.tag("fanON",fanON)
         self.__write_api.write(bucket=bucket, record=point)
         
     

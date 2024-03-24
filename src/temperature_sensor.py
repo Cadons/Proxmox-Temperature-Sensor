@@ -41,7 +41,7 @@ class TemperatureSensor(s.Sensor):
                                   
         if self.onInflux == True:
             #self.loadInfluxDB("temperature",-1)
-            self.loadInfluxDB("temperature",avarage_temperature)
+            self.loadInfluxDB("temperature",avarage_temperature,fanON=self.__fanON)
        
 
 
