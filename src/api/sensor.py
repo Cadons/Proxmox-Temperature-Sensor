@@ -69,8 +69,10 @@ class Sensor(ABC):
             value=10
         
         point=Point(name).tag("sensor",self.get_name()).field("value",value).time(time.time_ns(), WritePrecision.NS)
-        point.tag("fanON",fanON)
+        pointFan=Point(name+"-fan-status").tag("sensor",self.get_name()).field("fanON",fanON).time(time.time_ns(), WritePrecision.NS)
+     
         self.__write_api.write(bucket=bucket, record=point)
+        self.__write_api.write(bucket=bucket, record=pointFan)
         
     
 
